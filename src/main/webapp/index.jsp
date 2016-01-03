@@ -9,16 +9,16 @@
 
 <script type="text/javascript">
     //set up websocket
-    var url = "ws://" + window.location.host + window.location.pathname + "message-endpoint";
+    var url = (window.location.protocol === "https" ? "wss" : "ws") + "://" + window.location.host + window.location.pathname + "message-endpoint";
     var webSocket = new WebSocket(url);
     webSocket.onopen = function () {
         console.log("WebSocket is connected.");
-    }
+    };
     webSocket.onmessage = function (event) {
         console.log(event.data);
         var demo = document.getElementById("demo");
         demo.innerHTML = demo.innerHTML + "<br/>" + event.data;
-    }
+    };
     //get & stop messages
     function getMessages() {
         webSocket.send("GET");
