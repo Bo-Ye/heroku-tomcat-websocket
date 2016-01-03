@@ -10,7 +10,7 @@
 <script type="text/javascript">
     //set up websocket
     console.log(window.location.protocol);
-    var url = (window.location.protocol === "https" ? "wss" : "ws") + "://" + window.location.host + window.location.pathname + "message-endpoint";
+    var url = (window.location.protocol === "https:" ? "wss:" : "ws:") + "//" + window.location.host + window.location.pathname + "message-endpoint";
     var webSocket = new WebSocket(url);
     webSocket.onopen = function () {
         console.log("WebSocket is connected.");
