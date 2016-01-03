@@ -9,7 +9,8 @@
 
 <script type="text/javascript">
     //set up websocket
-    var webSocket = new WebSocket("ws://localhost:8080/heroku-tomcat-websocket/message-endpoint");
+    var url = "ws://" + window.location.host + window.location.pathname + "message-endpoint";
+    var webSocket = new WebSocket(url);
     webSocket.onopen = function () {
         console.log("WebSocket is connected.");
     }

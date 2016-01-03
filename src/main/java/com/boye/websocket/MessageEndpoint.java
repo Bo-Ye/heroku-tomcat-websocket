@@ -12,11 +12,14 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/message-endpoint")
 public class MessageEndpoint {
+
     private Timer timer;
+
     @OnOpen
     public void onOpen(Session session) {
         System.out.println("Open session " + session.getId());
     }
+
     @OnMessage
     public void onMessage(String message, final Session session) {
         System.out.println("Session " + session.getId() + " message: " + message);
@@ -37,6 +40,7 @@ public class MessageEndpoint {
             timer.cancel();
         }
     }
+
     @OnClose
     public void onClose(Session session) {
         System.out.println("Session " + session.getId() + " is closed.");
